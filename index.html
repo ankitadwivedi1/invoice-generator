@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invoice Generator</title>
+    
+</head>
+<body>
+    <button onclick="downloadinvoice()">DownloadInvoice</button>
+    
+</body>
+<script src="https://unpkg.com/easyinvoice/dist/easyinvoice.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
+
+    <script>
+        function downloadinvoice() {
+
+var data = {
+    "currency": "USD",
+"taxNotation": "vat", //or gst
+"marginTop": 25,
+"marginRight": 25,
+"marginLeft": 25,
+"marginBottom": 25,
+"logo": "https://i.ytimg.com/vi/znopivlCrm8/maxresdefault.jpg", 
+//"logoExtension": "png", //only when logo is base64
+"sender": {
+    "company": "Prodsmiths    ",
+    "address": "Marine Drive ,Mumbai",
+    "zip": "xyz",
+    "city": "Mumbai",
+    "country": "India"
+    //"custom1": "custom value 1",
+    //"custom2": "custom value 2"
+},
+"client": {
+    "company": "Client xyz",
+    "address": "Mumbai",
+    "zip": "1234 AD",
+    "city": "Mumbai",
+    "country": "India"
+    //"custom1": "custom value 1",
+    //"custom2": "custom value 2",
+    //"custom3": "custom value 3"
+},
+"invoiceNumber": "2020.0001",
+"invoiceDate": "14-12-2021",
+"products": [xyz
+
+    {
+        "quantity": "2",
+        "description": "Test1",
+        "tax": 2,
+        "price": 33.87
+    },
+    {
+        "quantity": "1",
+        "description": "Test2",
+        "tax": 21,
+        "price": 10.45
+    }
+],
+"bottomNotice": "Kindly pay your invoice within 1 days."
+};
+
+//Create your invoice! Easy!
+easyinvoice.createInvoice(data, async function (result) {
+//The response will contain a base64 encoded PDF file
+console.log(result.pdf);
+easyinvoice.download(invoice.pdf)
+
+}
+
+ }
+    </script>
+</html>
